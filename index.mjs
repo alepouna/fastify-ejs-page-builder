@@ -2,16 +2,17 @@
  * Creates metadata to be used in the ejs templates
  * @constructor
  */
-export class PageBuilder {
+export default class PageBuilder {
 
     constructor(pathToPageBuilder) {
 
-        this.builderPath = pathToPageBuilder || './src/web/views/builder.ejs';
+        if (pathToPageBuilder) this.builderPath = pathToPageBuilder;
 
         this.page = {
             title: '', //Browser tab title
             description: '', //Meta tag description
             path: '', //Path to the ejs page
+            keywords: '', //Meta tag keywords
             nav: false, //Show nav bar
             theme: '' //Page theme
         }   
@@ -23,6 +24,8 @@ export class PageBuilder {
      * @returns {string} Returns the path to the builder.ejs file
      */
     getBuilderPath() {
+
+        if (!this.builderPath) throw new Error('Builder path is empty, set it with setBuilderPath() or pass it in the constructor');
 
         return this.builderPath;
 
@@ -64,6 +67,18 @@ export class PageBuilder {
 
         this.page.path = path + '.ejs';
 
+    }
+
+    /**
+     * 
+     * @param {string} Page keywords 
+     */
+    setPageKeywords(keywords) {
+            
+        if (!keywords) throw new Error('Page keywords cannot be empty');
+    
+        this.page.keywords = keywords;
+    
     }
 
     /**

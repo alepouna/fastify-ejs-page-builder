@@ -87,7 +87,7 @@ export default class PageBuilder {
      */
     setPageNav(nav) {
 
-        if (!nav) throw new Error('Page nav cannot be empty');
+        if (!nav && nav !== false) throw new Error('Page nav cannot be empty');
 
         this.page.nav = nav;
 

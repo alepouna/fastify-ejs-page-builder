@@ -1,3 +1,5 @@
+## ⚠️⚠️⚠️ As of 29/02/2024 this repo has been moved to GitLab at https://gitlab.com/alepouna.dev/fastify-ejs-page-builder
+
 # fastify-ejs-page-builder
 
 A litle tool to be used along side EJS and Fastify to allow you to inject variables to all your fastify routes. This is useful for injecting things like page meta data, page titles, etc. that are usually the same across all pages. 
